@@ -27,13 +27,13 @@ $(document).ready(function () {
         var message = $('#message').val().trim();
 
         if (name === "") {
-            alert("Please enter your name.");
+            console.log("Please enter your name.");
             isValid = false;
         } else if (email === "" || !isValidEmail(email)) {
-            alert("Please enter a valid email address.");
+            console.log("Please enter a valid email address.");
             isValid = false;
         } else if (message === "") {
-            alert("Please enter a message.");
+            console.log("Please enter a message.");
             isValid = false;
         }
 
@@ -42,9 +42,8 @@ $(document).ready(function () {
 
     // Handle form submission
     $('#contact-form').on('submit', function (event) {
-        event.preventDefault(); // Prevent form from submitting to server
+        event.preventDefault();
 
-        // Validate form before submitting
         if (validateForm()) {
             var formData = {
                 name: $('#name').val().trim(),
@@ -61,7 +60,7 @@ $(document).ready(function () {
                 $('body').removeClass('loading');
 
                 // Show success message
-                alert('Form submitted successfully!');
+                console.log('Form submitted successfully!');
 
                 // Reset the form fields after submission
                 $('#contact-form')[0].reset();
